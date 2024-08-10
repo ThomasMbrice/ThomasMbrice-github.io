@@ -3,7 +3,6 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';   
 
 
-// Function to redirect based on screen size
 function checkScreenSize() {
   // Define the breakpoint width (e.g., 1024px for lower than a laptop)
   const breakpointWidth = 1024;
@@ -15,13 +14,11 @@ function checkScreenSize() {
   }
 }
 
-// Execute the function on page load
+// Call the function on page load
 window.addEventListener('load', checkScreenSize);
 
-// Optional: Re-check on window resize
+// Call the function on window resize
 window.addEventListener('resize', checkScreenSize);
-
-
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });

@@ -109,7 +109,7 @@ const videoElement = document.getElementById('myVideo');
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
         // Redirect to the video page
-        window.location.href = 'video_page.html';
+        window.location.href = 'page.html';
     }
 });
 

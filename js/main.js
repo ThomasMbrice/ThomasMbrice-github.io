@@ -4,20 +4,16 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';  
 
 
 function checkScreenSize() {
-  // Define the breakpoint width (e.g., 1024px for lower than a laptop)
   const breakpointWidth = 1024;
 
-  // Check the current screen width
-  if (window.innerWidth < breakpointWidth) {
-      // Redirect to a different page if the screen width is below the breakpoint
+  if (document.documentElement.clientWidth < breakpointWidth) {
+    setTimeout(() => {
       window.location.href = "page.html"; // Replace with your URL
+    }, 100); // Small delay
   }
 }
 
-// Call the function on page load
 window.addEventListener('load', checkScreenSize);
-
-// Call the function on window resize
 window.addEventListener('resize', checkScreenSize);
 
 

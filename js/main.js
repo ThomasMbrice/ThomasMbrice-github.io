@@ -6,15 +6,29 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';  
 function checkScreenSize() {
   const breakpointWidth = 1024;
 
+  // Check if we are already on the target page to avoid infinite redirects
+  if (window.location.pathname === "/page.html") {
+    return; // Do nothing if we are already on the target page
+  }
+
+  // Use document.documentElement.clientWidth for more accurate width detection on mobile
   if (document.documentElement.clientWidth < breakpointWidth) {
-    setTimeout(() => {
-      window.location.href = "page.html"; // Replace with your URL
-    }, 100); // Small delay
+    window.location.href = "page.html"; // Replace with your URL
   }
 }
 
+// Debounce function to limit the rate at which `checkScreenSize` is called
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, wait);
+  };
+}
+
 window.addEventListener('load', checkScreenSize);
-window.addEventListener('resize', checkScreenSize);
+window.addEventListener('resize', debounce(checkScreenSize, 200)); // Call function with a 200ms delay
+
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var link = document.createElement('a');
         link.href = 'public/resume/ThomasMbrice_Resume.pdf'; // Path to your resume
-        link.download = 'ThomasMbriceResume.png'; // Name of the file to be downloaded
+        link.download = 'ThomasMbriceResume.pdf'; // Name of the file to be downloaded
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
